@@ -1,0 +1,30 @@
+[2026-11-13T22:45:24.473+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olympic_medals_pipeline.check_sensor manual__2026-11-13T22:44:55.333438+00:00 [queued]>
+[2026-11-13T22:45:24.481+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olympic_medals_pipeline.check_sensor manual__2026-11-13T22:44:55.333438+00:00 [queued]>
+[2026-11-13T22:45:24.482+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-11-13T22:45:24.500+0000] {taskinstance.py:1382} INFO - Executing <Task(SqlSensor): check_sensor> on 2026-11-13 22:44:55.333438+00:00
+[2026-11-13T22:45:24.505+0000] {standard_task_runner.py:57} INFO - Started process 338 to run task
+[2026-11-13T22:45:24.510+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'olympic_medals_pipeline', 'check_sensor', 'manual__2026-11-13T22:44:55.333438+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/olympic_medals_dag.py', '--cfg-path', '/tmp/tmpzmmwuf2i']
+[2026-11-13T22:45:24.512+0000] {standard_task_runner.py:85} INFO - Job 18: Subtask check_sensor
+[2026-11-13T22:45:24.560+0000] {task_command.py:416} INFO - Running <TaskInstance: olympic_medals_pipeline.check_sensor manual__2026-11-13T22:44:55.333438+00:00 [running]> on host f0402a57faaf
+[2026-11-13T22:45:24.623+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='olympic_medals_pipeline' AIRFLOW_CTX_TASK_ID='check_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-11-13T22:44:55.333438+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-13T22:44:55.333438+00:00'
+[2026-11-13T22:45:24.629+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T22:45:24.790+0000] {sql.py:95} INFO - Poking: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+         (with parameters None)
+[2026-11-13T22:45:24.793+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T22:45:24.806+0000] {sql.py:418} INFO - Running statement: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+        , parameters: None
+[2026-11-13T22:45:24.808+0000] {sql.py:427} INFO - Rows affected: 1
+[2026-11-13T22:45:24.808+0000] {base.py:287} INFO - Success criteria met. Exiting.
+[2026-11-13T22:45:24.814+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=olympic_medals_pipeline, task_id=check_sensor, execution_date=20261113T224455, start_date=20261113T224524, end_date=20261113T224524
+[2026-11-13T22:45:24.844+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-11-13T22:45:24.856+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

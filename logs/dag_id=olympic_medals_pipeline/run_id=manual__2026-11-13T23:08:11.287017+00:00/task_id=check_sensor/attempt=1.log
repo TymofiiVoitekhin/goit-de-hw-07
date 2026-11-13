@@ -1,0 +1,86 @@
+[2026-11-13T23:09:05.174+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olympic_medals_pipeline.check_sensor manual__2026-11-13T23:08:11.287017+00:00 [queued]>
+[2026-11-13T23:09:05.180+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olympic_medals_pipeline.check_sensor manual__2026-11-13T23:08:11.287017+00:00 [queued]>
+[2026-11-13T23:09:05.181+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-11-13T23:09:05.196+0000] {taskinstance.py:1382} INFO - Executing <Task(SqlSensor): check_sensor> on 2026-11-13 23:08:11.287017+00:00
+[2026-11-13T23:09:05.202+0000] {standard_task_runner.py:57} INFO - Started process 470 to run task
+[2026-11-13T23:09:05.207+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'olympic_medals_pipeline', 'check_sensor', 'manual__2026-11-13T23:08:11.287017+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/olympic_medals_dag.py', '--cfg-path', '/tmp/tmp04oo6_kd']
+[2026-11-13T23:09:05.208+0000] {standard_task_runner.py:85} INFO - Job 24: Subtask check_sensor
+[2026-11-13T23:09:05.252+0000] {task_command.py:416} INFO - Running <TaskInstance: olympic_medals_pipeline.check_sensor manual__2026-11-13T23:08:11.287017+00:00 [running]> on host f0402a57faaf
+[2026-11-13T23:09:05.318+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='olympic_medals_pipeline' AIRFLOW_CTX_TASK_ID='check_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-11-13T23:08:11.287017+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-13T23:08:11.287017+00:00'
+[2026-11-13T23:09:05.324+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:05.481+0000] {sql.py:95} INFO - Poking: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+         (with parameters None)
+[2026-11-13T23:09:05.484+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:05.498+0000] {sql.py:418} INFO - Running statement: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+        , parameters: None
+[2026-11-13T23:09:05.500+0000] {sql.py:427} INFO - Rows affected: 0
+[2026-11-13T23:09:10.506+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:10.507+0000] {sql.py:95} INFO - Poking: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+         (with parameters None)
+[2026-11-13T23:09:10.509+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:10.514+0000] {sql.py:418} INFO - Running statement: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+        , parameters: None
+[2026-11-13T23:09:10.515+0000] {sql.py:427} INFO - Rows affected: 0
+[2026-11-13T23:09:15.525+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:15.526+0000] {sql.py:95} INFO - Poking: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+         (with parameters None)
+[2026-11-13T23:09:15.528+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:15.534+0000] {sql.py:418} INFO - Running statement: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+        , parameters: None
+[2026-11-13T23:09:15.535+0000] {sql.py:427} INFO - Rows affected: 0
+[2026-11-13T23:09:20.544+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:20.545+0000] {sql.py:95} INFO - Poking: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+         (with parameters None)
+[2026-11-13T23:09:20.547+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-13T23:09:20.553+0000] {sql.py:418} INFO - Running statement: 
+            SELECT 1 
+            FROM hw7_medal_counts 
+            WHERE TIMESTAMPDIFF(SECOND, created_at, NOW()) <= 30 
+            ORDER BY created_at DESC 
+            LIMIT 1;
+        , parameters: None
+[2026-11-13T23:09:20.555+0000] {sql.py:427} INFO - Rows affected: 0
+[2026-11-13T23:09:20.556+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 274, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 15.23879157400006 seconds exceeds the specified timeout of 15.0.
+[2026-11-13T23:09:20.561+0000] {taskinstance.py:1400} INFO - Immediate failure requested. Marking task as FAILED. dag_id=olympic_medals_pipeline, task_id=check_sensor, execution_date=20261113T230811, start_date=20261113T230905, end_date=20261113T230920
+[2026-11-13T23:09:20.576+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 24 for task check_sensor (Sensor has timed out; run duration of 15.23879157400006 seconds exceeds the specified timeout of 15.0.; 470)
+[2026-11-13T23:09:20.588+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-11-13T23:09:20.601+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

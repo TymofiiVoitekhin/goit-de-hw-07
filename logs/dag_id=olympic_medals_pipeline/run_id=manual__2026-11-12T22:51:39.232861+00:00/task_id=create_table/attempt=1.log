@@ -1,0 +1,36 @@
+[2026-11-12T22:51:42.862+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olympic_medals_pipeline.create_table manual__2026-11-12T22:51:39.232861+00:00 [queued]>
+[2026-11-12T22:51:42.869+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olympic_medals_pipeline.create_table manual__2026-11-12T22:51:39.232861+00:00 [queued]>
+[2026-11-12T22:51:42.870+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-11-12T22:51:42.885+0000] {taskinstance.py:1382} INFO - Executing <Task(SQLExecuteQueryOperator): create_table> on 2026-11-12 22:51:39.232861+00:00
+[2026-11-12T22:51:42.890+0000] {standard_task_runner.py:57} INFO - Started process 128 to run task
+[2026-11-12T22:51:42.894+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'olympic_medals_pipeline', 'create_table', 'manual__2026-11-12T22:51:39.232861+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/olympic_medals_dag.py', '--cfg-path', '/tmp/tmpziibfbyn']
+[2026-11-12T22:51:42.896+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask create_table
+[2026-11-12T22:51:42.939+0000] {task_command.py:416} INFO - Running <TaskInstance: olympic_medals_pipeline.create_table manual__2026-11-12T22:51:39.232861+00:00 [running]> on host f0402a57faaf
+[2026-11-12T22:51:43.004+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='olympic_medals_pipeline' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2026-11-12T22:51:39.232861+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-12T22:51:39.232861+00:00'
+[2026-11-12T22:51:43.005+0000] {sql.py:274} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS hw7_medal_counts (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                medal_type VARCHAR(50),
+                count INT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        
+[2026-11-12T22:51:43.009+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-12T22:51:43.176+0000] {base.py:73} INFO - Using connection ID 'mysql_default' for task execution.
+[2026-11-12T22:51:47.185+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 385, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/mysql/hooks/mysql.py", line 195, in get_conn
+    return MySQLdb.connect(**conn_config)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2005, "Unknown MySQL server host 'mysql' (-2)")
+[2026-11-12T22:51:47.189+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=olympic_medals_pipeline, task_id=create_table, execution_date=20261112T225139, start_date=20261112T225142, end_date=20261112T225147
+[2026-11-12T22:51:47.201+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3 for task create_table ((2005, "Unknown MySQL server host 'mysql' (-2)"); 128)
+[2026-11-12T22:51:47.212+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-11-12T22:51:47.228+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
